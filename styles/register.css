@@ -111,9 +111,9 @@ form button:hover {
 }
 
 .itens-coleta li {
-    background-color: #f0f0f5;
+    background-color: var(--background-color-padrao);
     list-style: none;
-    border: 2px solid #f0f0f5;
+    border: 2px solid var(--background-color-padrao);
     border-radius: 8px;
     padding: 32px 24px 16px;
     height: 180px;
@@ -135,4 +135,9 @@ form button:hover {
 .itens-coleta li.selecionado {
     background: #e1faec;
     border: 2px solid #34CB79;
+}
+
+.itens-coleta li img,
+.itens-coleta li span {
+    pointer-events: none;
 }

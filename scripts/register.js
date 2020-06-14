@@ -49,3 +49,36 @@ document
 
 // ---------------------------------- COLETA ------------------------------- //
 
+const itensColeta = document.querySelectorAll(".itens-coleta li")
+
+for (const item of itensColeta) {
+    item.addEventListener("click", itemSelecionado)
+}
+
+const todosItens = document.querySelector("input[name=itens]")
+
+let itensSelecionados = []
+
+function itemSelecionado(e){
+
+    const itemLista = e.target
+    //adionar e remover classe
+    itemLista.classList.toggle("selecionado");
+
+    const itemId = itemLista.dataset.id
+
+    const jaSelecionado = itensSelecionados.findIndex( item => item === itemId )
+    
+    if(jaSelecionado >= 0){
+        const itensFiltrados = itensSelecionados.filter( item => {
+            const itensDiferentes = item != itemId
+            return itensDiferentes
+        })
+
+        itensSelecionados = itensFiltrados
+    } else {
+        itensSelecionados.push(itemId)
+    }
+
+    todosItens.value = itensSelecionados
+}
